@@ -3,15 +3,15 @@ import React from "react";
 import Products from "./Products";
 import ProductsCategory from "./ProductsCategory";
 import LoadMore from "./LoadMore";
-import HeaderBrand from "./HeaderBrand"
-import Header from "./Header"
-
-
+import HeaderBrand from "./HeaderBrand";
+import Header from "./Header";
 
 class Index extends React.Component {
   state = {
+    category: "all",
     products: [],
     products2: [],
+    productNumber:0,
   };
   componentDidMount() {
     fetch("https://fakestoreapi.com/products")
@@ -27,13 +27,12 @@ class Index extends React.Component {
   }
 
   productsCategory = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (e.target.dataset.type === "all") {
       this.setState({
         products2: this.state.products.slice(0, 8),
       });
-    }
-    if (e.target.dataset.type != "all") {
+    } else {
       const data = this.state.products.filter(
         (product) => product.category === `${e.target.dataset.type}`
       );
@@ -41,30 +40,50 @@ class Index extends React.Component {
         products2: data,
       });
     }
+    this.setState({
+      category: e.target.dataset.type,
+    });
   };
 
   LoadMoreButton = () => {
-      this.setState({
-        products2:this.state.products
-      })
-  }
+    this.setState({
+      category: "all",
+      products2: this.state.products,
+    });
+  };
 
   headerSearch = (e) => {
-  console.log(this.state.products2)
+    if(this.state.category == "all"){
+      this.setState({
+      products2: this.state.products.filter((product) =>product.title.toLowerCase().includes(e.target.value.toLowerCase())
+      ),
+    });
+    }else{
+      this.setState({
+        products2: this.state.products.filter((product) =>product.title.toLowerCase().includes(e.target.value.toLowerCase()) &&
+        product.category == this.state.category
+        ),
+      });
+    }
+  };
+
+  changeProductCount = (count) => {
     this.setState({
-      products2:(this.state.products.filter(product => product.title.toLowerCase().includes((e.target.value).toLowerCase())))
+      productNumber:count,
     })
   }
-  
 
   render() {
     return (
       <div>
-        <Header headerSearch={this.headerSearch}/>
+        <Header headerSearch={this.headerSearch} productNumber={this.state.productNumber}/>
         <HeaderBrand />
-        <ProductsCategory productCategory={this.productsCategory} />
-        <Products products={this.state.products2} />
-        <LoadMore loadButton={this.LoadMoreButton}/>
+        <ProductsCategory
+          category={this.state.category}
+          productCategory={this.productsCategory}
+        />
+        <Products products={this.state.products2} changeProductCount={this.changeProductCount}/>
+        <LoadMore loadButton={this.LoadMoreButton} />
       </div>
     );
   }

@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   state = {};
 
   HeaderSearchInput = (e) => {
-   this.props.headerSearch(e)
-  }
+    this.props.headerSearch(e);
+  };
 
   render() {
+    const{productNumber} = this.props
     return (
       <header>
         <div>
@@ -31,13 +34,13 @@ class Header extends React.Component {
               </form>
               <div className="header-top__right">
                 <a className="header-top__user">My Profile</a>
-                <a className="header-top__shop-cart" href="/shopcart">
+                <a className="header-top__shop-cart" href="shop">
                   {" "}
                   <img
                     src="https://exam-fourth-month.netlify.app/img/korzinka.svg"
                     alt=""
                   />
-                  <span className="header-top__shop-cart-span">0</span>
+                  <span className="header-top__shop-cart-span numberProducts">{productNumber}</span>
                 </a>
               </div>
             </div>
@@ -78,7 +81,7 @@ class Header extends React.Component {
                   </a>
                 </li>
                 <li className="header-bottom__item">
-                  <a className="header-bottom__link" href="/shopcart">
+                  <a className="header-bottom__link" href="/shopcard">
                     ShopCart
                   </a>
                 </li>

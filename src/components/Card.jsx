@@ -3,16 +3,37 @@ import React from "react";
 
 class Card extends React.Component {
   state = {
-    star:[] 
+    star: [],
+    arr:[],
+    productNumber: 0
   };
 
+  showId = (e) => {
+    const arr = [...this.props.newProducts]
+    const isHaveLocalStorage = arr.find((el) => el.id == e.id)
+    if(isHaveLocalStorage){
+      alert("Bu maxsulot oldin kiritilgan")
+    }else{
+      arr.push(e)
+    }
+    
+    this.props.localStorageData(arr)
+  };
+
+  
+  
   render() {
-    const { img, name, rate,price } = this.props;
-    for(let i = 0; i < 5; i++){
-      if(i < Math.round(rate)){
-        this.state.star.push("https://exam-fourth-month.netlify.app/img/star.svg")
-      }else{
-        this.state.star.push("https://exam-fourth-month.netlify.app/img/unset-star.svg")
+    
+    const { img, name, rate, price, id } = this.props;
+    for (let i = 0; i < 5; i++) {
+      if (i < Math.round(rate)) {
+        this.state.star.push(
+          "https://exam-fourth-month.netlify.app/img/star.svg"
+        );
+      } else {
+        this.state.star.push(
+          "https://exam-fourth-month.netlify.app/img/unset-star.svg"
+        );
       }
     }
     return (
@@ -23,7 +44,9 @@ class Card extends React.Component {
             <p>{name}</p>
           </div>
           <div className="PriceBox">
-            <p className="currentPrice">{(price-price*24/100).toFixed(2)}$</p>
+            <p className="currentPrice">
+              {(price - (price * 24) / 100).toFixed(2)}$
+            </p>
             <p className="PriviousPrice">{price}$</p>
             <p className="skidka">24%</p>
           </div>
@@ -36,12 +59,16 @@ class Card extends React.Component {
           </div>
           <div className="korzinHeart">
             <img
-              src="https://exam-fourth-month.netlify.app/img/hearts.svg" className="heart"
-              alt=""
+              src="https://exam-fourth-month.netlify.app/img/hearts.svg"
+              className="heart"
+              alt="heart img"
             />
             <img
-              src="https://exam-fourth-month.netlify.app/img/korzinka_2.svg" className="korzin"
-              alt=""
+              src="https://exam-fourth-month.netlify.app/img/korzinka_2.svg"
+              className="korzin"
+              alt="heart img"
+              id={id}
+              onClick={() => this.showId(this.props)}
             />
           </div>
         </div>
