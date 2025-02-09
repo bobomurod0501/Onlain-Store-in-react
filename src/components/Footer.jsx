@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../images/logo.svg"
 
 class Footer extends React.Component {
   state = {};
@@ -10,7 +11,7 @@ class Footer extends React.Component {
             <div className="footer-block">
               <div className="footer-adress">
                 <div className="footer-icon-block">
-                  <img src="https://exam-fourth-month.netlify.app/img/Icon.svg" alt="Logo" />
+                  <img src={logo} alt="Logo" />
                   <p className="footer-logo-text">E-comm</p>
                 </div>
                 <a

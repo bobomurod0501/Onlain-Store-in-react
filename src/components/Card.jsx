@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
+import starImg from "../images/star.svg"
+import unsetStar from "../images/unset-star.svg"
+import heart from "../images/hearts.svg"
+import korzinka2 from "../images/korzinka_2.svg"
 class Card extends React.Component {
   state = {
     star: [],
@@ -16,24 +19,20 @@ class Card extends React.Component {
     }else{
       arr.push(e)
     }
-    
+
     this.props.localStorageData(arr)
   };
 
-  
-  
+
+
   render() {
-    
+
     const { img, name, rate, price, id } = this.props;
     for (let i = 0; i < 5; i++) {
       if (i < Math.round(rate)) {
-        this.state.star.push(
-          "https://exam-fourth-month.netlify.app/img/star.svg"
-        );
+        this.state.star.push(starImg);
       } else {
-        this.state.star.push(
-          "https://exam-fourth-month.netlify.app/img/unset-star.svg"
-        );
+        this.state.star.push(unsetStar);
       }
     }
     return (
@@ -58,13 +57,9 @@ class Card extends React.Component {
             <img src={this.state.star[4]} alt="" />
           </div>
           <div className="korzinHeart">
+            <img src={heart} className="heart" alt="heart img" />
             <img
-              src="https://exam-fourth-month.netlify.app/img/hearts.svg"
-              className="heart"
-              alt="heart img"
-            />
-            <img
-              src="https://exam-fourth-month.netlify.app/img/korzinka_2.svg"
+              src={korzinka2}
               className="korzin"
               alt="heart img"
               id={id}

@@ -3,6 +3,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import googleImg from "../images/google.png"
 import { FaShoppingCart } from "react-icons/fa";
+import logo from "../images/logo.svg"
 
 class Header extends React.Component {
   state = {};
@@ -35,7 +36,7 @@ class Header extends React.Component {
                 <a className="header-top__user">My Profile</a>
                 <a className="header-top__shop-cart" href="shop">
                   {" "}
-                  <FaShoppingCart size={25} color="#373131"  />
+                  <FaShoppingCart size={25} color="#373131" />
                   <span className="header-top__shop-cart-span numberProducts">
                     {productNumber}
                   </span>
@@ -49,10 +50,7 @@ class Header extends React.Component {
           <div className="header-bottom__container container">
             <div className="header-bottom__left">
               <a href="#" className="header-bottom__logo-block">
-                <img
-                  src="https://exam-fourth-month.netlify.app/img/Icon.svg"
-                  alt="logo"
-                />
+                <img src={logo} alt="logo" />
               </a>
               <p className="header-bottom__logo-text">E-Comm</p>
             </div>
