@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 // import { Link } from "react-router-dom";
+import googleImg from "../images/google.png"
+import { FaShoppingCart } from "react-icons/fa";
 
 class Header extends React.Component {
   state = {};
@@ -18,10 +20,7 @@ class Header extends React.Component {
             <div className="header-top__container container">
               <div className="header-top__left">
                 <a href="#" className="header-top__left-link">
-                  <img
-                    src="https://exam-fourth-month.netlify.app/img/header-top-logo.png"
-                    alt="logo"
-                  />
+                  <img src={googleImg} alt="logo" />
                 </a>
               </div>
               <form className="header-top__search">
@@ -36,11 +35,10 @@ class Header extends React.Component {
                 <a className="header-top__user">My Profile</a>
                 <a className="header-top__shop-cart" href="shop">
                   {" "}
-                  <img
-                    src="https://exam-fourth-month.netlify.app/img/korzinka.svg"
-                    alt=""
-                  />
-                  <span className="header-top__shop-cart-span numberProducts">{productNumber}</span>
+                  <FaShoppingCart size={25} color="#373131"  />
+                  <span className="header-top__shop-cart-span numberProducts">
+                    {productNumber}
+                  </span>
                 </a>
               </div>
             </div>
