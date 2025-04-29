@@ -21,7 +21,7 @@ class ProductsCategory extends React.Component {
                 onClick={this.handleValue}
                 className={`${category == "all" ? "activeLink" : ""}`}
               >
-                All
+                Hammasi
               </a>
             </li>
             <li>
@@ -31,7 +31,7 @@ class ProductsCategory extends React.Component {
                 onClick={this.handleValue}
                 className={`${category == "electronics" ? "activeLink" : ""}`}
               >
-                Electronics
+                Elektronikalar
               </a>
             </li>
             <li>
@@ -41,7 +41,7 @@ class ProductsCategory extends React.Component {
                 onClick={this.handleValue}
                 className={`${category == "jewelery" ? "activeLink" : ""}`}
               >
-                Jewelery
+                Zargarlik buyumlari
               </a>
             </li>
             <li>
@@ -53,7 +53,7 @@ class ProductsCategory extends React.Component {
                   category == "men's clothing" ? "activeLink" : ""
                 }`}
               >
-                Men`s Clothing
+                Erkaklar kiyimlari
               </a>
             </li>
             <li>
@@ -65,7 +65,7 @@ class ProductsCategory extends React.Component {
                   category == "women's clothing" ? "activeLink" : ""
                 }`}
               >
-                Women` s Clothing
+                Ayollar kiyimlari
               </a>
             </li>
           </ul>

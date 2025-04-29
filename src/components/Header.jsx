@@ -58,7 +58,7 @@ class Header extends React.Component {
               <ul className="header-botttom__list">
                 <li className="header-bottom__item">
                   <a href="#" className="header-bottom__link active-link">
-                    Home
+                    Asosiy
                   </a>
                 </li>
                 <li className="header-bottom__item">
@@ -78,7 +78,7 @@ class Header extends React.Component {
                 </li>
                 <li className="header-bottom__item">
                   <a className="header-bottom__link" href="/shopcard">
-                    ShopCart
+                    Korzinka
                   </a>
                 </li>
               </ul>
