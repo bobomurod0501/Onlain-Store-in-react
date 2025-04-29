@@ -188,10 +188,11 @@ header {
 }
 
 .header_brand_img img {
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   width: 100%;
-  opacity: 1;
+  margin-top: 50px;
+  /* opacity: 1; */
 }
 
 .ProductImg {
